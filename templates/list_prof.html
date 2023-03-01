@@ -1,0 +1,19 @@
+
+
+{% block content %}
+    <h1>Список профессий</h1>
+{% set prof_list = ['Инженер по жизнеобеспечению', 'Экзобиолог', 'Метеоролог', 'Врач', 'Пилот', 'Инженер-строитель', 'Инженер-исследователь'] %}
+{% if list_index == 'ol' %}
+    {% for prof in prof_list %}
+    <div>{{ loop.index }} - {{ prof }}</div>
+    {% endfor %}
+{% elif list_index == 'ul' %}
+    <ul>
+        {% for prof in prof_list %}
+            <li>{{ prof }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h2>Был введен неверный параметр!</h2>
+{% endif %}
+{% endblock %}
