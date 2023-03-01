@@ -22,6 +22,23 @@ def index3():
 def table(pol, age):
     return render_template('inoplanet.html', pol=pol, age=int(age))
 
+
+@app.route('/answer')
+@app.route('/auto_answer')
+def answer():
+    title = 'анкета'
+    surname = 'зубенко'
+    name = 'михаил'
+    education = 'среднее неполное'
+    profession = 'мафиозник'
+    sex = 'мафиозник(мужчина)'
+    motivation = 'хочу научиться не делать инфу в последний день'
+    ready = 'дада'
+    ad = {'Заголовок': title, 'Фамилия': surname, 'Имя': name, 'Образование': education,
+            'Профессия': profession, 'Пол': sex, 'Мотивация': motivation, 'Готовы остаться на Марсе?': ready}
+
+    return render_template('ans.html', title=ad["Заголовок"], dict=ad)
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
 
