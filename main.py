@@ -18,7 +18,9 @@ def index1(list_index):
 def index3():
     a = ['Ридли Скотт', 'Энди Уир', 'Марк Уотни', 'Венката Капур', 'Тедди Сандерс', 'Шон Бин']
     return render_template('numbers.html', a=a)
-
+@app.route('/table/<pol>/<age>')
+def table(pol, age):
+    return render_template('inoplanet.html', pol=pol, age=int(age))
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
