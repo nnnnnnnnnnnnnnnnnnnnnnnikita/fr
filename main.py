@@ -14,6 +14,11 @@ def index2(prof):
 def index1(list_index):
     return render_template('list_prof.html', list_index=list_index)
 
+@app.route('/distribution')
+def index3():
+    a = ['Ридли Скотт', 'Энди Уир', 'Марк Уотни', 'Венката Капур', 'Тедди Сандерс', 'Шон Бин']
+    return render_template('numbers.html', a=a)
+
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
