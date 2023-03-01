@@ -1,13 +1,9 @@
 from flask import Flask, render_template
-
 app = Flask(__name__)
 
 @app.route('/index/<us>')
 def index(us):
-    user = "Миссия Колонизация Марса"
-    user1 = "И на Марсе будут яблони цвести!"
-    return render_template('index.html', title=us,
-                           username=user, ert=user1)
+    return render_template('base.html', title=us,)
 @app.route('/training/<prof>')
 def index2(prof):
     if ("строитель" in prof) or ("инженер" in prof):
@@ -17,6 +13,12 @@ def index2(prof):
 @app.route('/list_prof/<list_index>')
 def index1(list_index):
     return render_template('list_prof.html', list_index=list_index)
+
+@app.route('/distribution')
+def distribution():
+    astronauts = ['Ридли Скотт', 'Энди Уир', 'Марк Уотни', 'Венката Капур', 'Тедди Сандерс', 'Шон Бин']
+    return render_template('cauti.html', astronauts=astronauts)
+
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
